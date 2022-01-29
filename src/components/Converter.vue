@@ -10,9 +10,7 @@
 
     <v-row>
       <p class="text--secondary mb-8">
-        🥑 <b>WEBVPN Converter</b> can help you convert a HFUT local area network
-        URL into its corresponding WEBVPN URL so that you can access HFUT local
-        resources from anywhere in the world.
+        🥑 <b>WEBVPN Converter</b> 能帮助你将任意HFUT内网地址转换为WEBVPN地址。
       </p>
     </v-row>
 
@@ -149,16 +147,28 @@ export default Vue.extend({
 
     commonResources: [
       {
+        name: 'GitLab',
+        url: '172.17.33.100'
+      },
+      {
         name: '综合信息门户',
         url: 'one.hfut.edu.cn'
       },
       {
-        name: '教学管理系统学生端',
+        name: '教学管理系统',
         url: 'jxglstu.hfut.edu.cn/eams5-student'
       },
       {
         name: '中国知网',
         url: 'www.cnki.net'
+      },
+      {
+        name: '图书馆',
+        url: 'lib.hfut.edu.cn'
+      },
+      {
+        name: '外语教学平台',
+        url: '172.31.241.173'
       }
     ]
   }),
