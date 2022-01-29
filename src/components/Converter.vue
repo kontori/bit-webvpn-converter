@@ -84,7 +84,7 @@
       </p>
     </v-row>
 
-    <v-row style="flex-wrap: wrap;flex-direction: row">
+    <v-row>
       <template v-for="resource in commonResources">
         <v-hover v-slot:default="{ hover }" :key="resource.url">
           <v-tooltip bottom>
@@ -151,11 +151,11 @@ export default Vue.extend({
         url: '172.17.33.100'
       },
       {
-        name: '综合信息门户',
+        name: '信息门户',
         url: 'one.hfut.edu.cn'
       },
       {
-        name: '教学管理系统',
+        name: '教学管理',
         url: 'jxglstu.hfut.edu.cn/eams5-student'
       },
       {
@@ -167,7 +167,7 @@ export default Vue.extend({
         url: 'lib.hfut.edu.cn'
       },
       {
-        name: '外语教学平台',
+        name: '外语平台',
         url: '172.31.241.173'
       }
     ]
