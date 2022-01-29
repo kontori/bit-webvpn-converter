@@ -3,15 +3,15 @@
     <v-row class="text-h4 mb-4">
       <h4>
         <v-icon class="mr-2" color="primary">mdi-link-variant</v-icon
-        ><a href="https://webvpn.bit.edu.cn/" target="_blank">WEBVPN</a> URL
+        ><a href="https://webvpn.hfut.edu.cn/" target="_blank">WEBVPN</a> URL
         Converter
       </h4>
     </v-row>
 
     <v-row>
       <p class="text--secondary mb-8">
-        🥑 <b>WEBVPN Converter</b> can help you convert a BIT local area network
-        URL into its corresponding WEBVPN URL so that you can access BIT local
+        🥑 <b>WEBVPN Converter</b> can help you convert a HFUT local area network
+        URL into its corresponding WEBVPN URL so that you can access HFUT local
         resources from anywhere in the world.
       </p>
     </v-row>
@@ -20,7 +20,7 @@
       <v-text-field
         label="Original URL"
         v-model="originalUrl"
-        placeholder="http://jwms.bit.edu.cn"
+        placeholder="http://one.hfut.edu.cn"
       />
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
@@ -34,12 +34,7 @@
 
     <v-row align="center" justify="center" class="my-4">
       <v-col cols="12" sm="4" class="text-center">
-        <v-btn class="mx-auto" color="default" @click="convert(true)">
-          <v-icon left>mdi-school</v-icon>LibVPN
-        </v-btn>
-      </v-col>
-      <v-col cols="12" sm="4" class="text-center">
-        <v-btn class="mx-auto" color="primary" @click="convert(false)">
+        <v-btn class="mx-auto" color="primary" @click="convert()">
           <v-icon left>mdi-lan</v-icon>WEBVPN
         </v-btn>
       </v-col>
@@ -50,7 +45,7 @@
         label="WEBVPN"
         v-model="webvpnUrl"
         readonly
-        placeholder="https://webvpn.bit.edu.cn/..."
+        placeholder="https://webvpn.hfut.edu.cn/..."
       />
 
       <v-tooltip bottom>
@@ -154,16 +149,12 @@ export default Vue.extend({
 
     commonResources: [
       {
-        name: '本科生教务系统',
-        url: 'jwms.bit.edu.cn'
+        name: '综合信息门户',
+        url: 'one.hfut.edu.cn'
       },
       {
-        name: '学生评教系统',
-        url: 'pj.bit.edu.cn'
-      },
-      {
-        name: '软件正版化平台',
-        url: 'ca.bit.edu.cn'
+        name: '教学管理系统学生端',
+        url: 'jxglstu.hfut.edu.cn/eams5-student'
       },
       {
         name: '中国知网',
@@ -173,25 +164,17 @@ export default Vue.extend({
   }),
 
   methods: {
-    convert (isLib = false): void {
+    convert (): void {
       const originalUrl = this.originalUrl
       if (originalUrl === '') {
         this.snackbarNoInput = !this.snackbarNoInput
       } else {
-        if (isLib) {
-          this.webvpnUrl = this.encryptLibVPN(originalUrl)
-        } else {
-          this.webvpnUrl = this.encryptUrl(originalUrl)
-        }
+        this.webvpnUrl = this.encryptUrl(originalUrl)
       }
     },
 
-    encryptLibVPN (url: string): string {
-      return `https://libvpn.bit.edu.cn${convert(url)}`
-    },
-
     encryptUrl (url: string): string {
-      return `https://webvpn.bit.edu.cn${convert(url)}`
+      return `https://webvpn.hfut.edu.cn${convert(url)}`
     },
 
     clearInputUrl (): void {
@@ -200,7 +183,7 @@ export default Vue.extend({
 
     copy (value: string): void {
       if (this.webvpnUrl === '') {
-        value = 'https://webvpn.bit.edu.cn'
+        value = 'https://webvpn.hfut.edu.cn'
         this.snackbarCopyNote = 'Default WEBVPN URL copied!'
       }
       console.log('Copied value:', value)
