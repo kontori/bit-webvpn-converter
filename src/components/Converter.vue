@@ -84,7 +84,7 @@
       </p>
     </v-row>
 
-    <v-row>
+    <v-row style="flex-wrap: wrap;flex-direction: row">
       <template v-for="resource in commonResources">
         <v-hover v-slot:default="{ hover }" :key="resource.url">
           <v-tooltip bottom>
